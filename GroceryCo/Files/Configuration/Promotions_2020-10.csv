@@ -1,0 +1,8 @@
+﻿ProductId,Description,PromotionType,Quantity,DiscountNextItem,PriceAfterDiscount,StartDate,EndDate
+6,Chips 350g,AdditionalProductDiscount,1,0.50,0,2020-10-21,2020-10-25
+7,Coke 6 pk,AdditionalProductDiscount,1,0.10,0,2020-10-21,2020-10-25
+8,Green Onion,GroupPromotionalPriceByQuantity,2,0.00,2.5,2020-10-21,2020-10-25
+9,Leeks,GroupPromotionalPriceByQuantity,3,0.00,5,2020-10-22,2020-10-28
+11,Brown Sugar 1kg,AdditionalProductDiscount,1,1.00,0,2020-10-25,2020-10-28
+13,Water Bottle 4L,AdditionalProductDiscount,3,1.00,0,2020-10-25,2020-10-28
+20,Coffee 1kg,AdditionalProductDiscount,1,1.00,0,2020-10-28,2020-10-31

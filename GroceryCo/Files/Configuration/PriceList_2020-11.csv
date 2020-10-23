@@ -1,0 +1,21 @@
+﻿ProductId,Description,Type,Price,Unit
+1,Apple,Weight,4.20,/kg
+2,Orange Navel,Weight,5.49,/kg
+3,Banana,Weight,6.50,/kg
+4,Zuchinni,Weight,7.20,/kg
+5,Salt 1kg,Each,12.20,Each
+6,Chips 350g,Each,3.25,Each
+7,Coke 6 pk,Each,2.10,Each
+8,Green Onion,Each,1.60,Each
+9,Leeks,Each,1.75,Each
+10,White Sugar 1kg,Each,1.79,Each
+11,Brown Sugar 1kg,Each,7.20,Each
+12,Sparkling Water 2L,Each,1.60,Each
+13,Water Bottle 4L,Each,1.55,Each
+14,Chicken Breast,Weight,15.10,/kg
+15,Sirloin,Weight,28.00,/kg
+16,Rice 1kg,Each,7.00,Each
+17,Milk 1L,Each,6.20,Each
+18,Eggs Dozen,Each,4.30,Each
+19,Cheese 100g,Each,10.00,Each
+20,Coffee 1kg,Each,5.10,Each
