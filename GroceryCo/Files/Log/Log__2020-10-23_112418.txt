@@ -1,0 +1,6 @@
+Invalid file name.
+
+
+System.Exception: Invalid file name.
+   at GroceryCo.Services.CheckoutService.loadConfigurations(String fileName, DateTime checkoutDateTime) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 210
+   at GroceryCo.Services.CheckoutService.checkout(String fileName, DateTime checkoutDate) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 57

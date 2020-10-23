@@ -1,0 +1,6 @@
+Invalid Price List file configuration.
+
+
+System.Exception: Invalid Price List file configuration.
+   at GroceryCo.Services.CheckoutService.loadConfigurations(String fileName, DateTime checkoutDateTime) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 226
+   at GroceryCo.Services.CheckoutService.checkout(String fileName, DateTime checkoutDate) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 57

@@ -1,0 +1,9 @@
+System.IO.IOException: The process cannot access the file 'C:\Braulio\Absorb\GroceryCo\GroceryCo\Files\Configuration\PriceList_2020-10.csv' because it is being used by another process.
+   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path)
+   at GroceryCo.Services.CheckoutService.loadPriceFile() in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 263
+   at GroceryCo.Services.CheckoutService.loadMarketingFiles() in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 240
+   at GroceryCo.Services.CheckoutService.checkout(String fileName, DateTime checkoutDate) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 58
