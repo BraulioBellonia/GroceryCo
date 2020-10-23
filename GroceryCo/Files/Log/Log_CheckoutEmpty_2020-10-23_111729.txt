@@ -1,0 +1,19 @@
+CsvHelper.TypeConversion.TypeConverterException: The conversion cannot be performed.
+    Text: ''
+    MemberType: 
+    TypeConverter: 'CsvHelper.TypeConversion.SingleConverter'
+   at CsvHelper.TypeConversion.DefaultTypeConverter.ConvertFromString(String text, IReaderRow row, MemberMapData memberMapData)
+   at CsvHelper.TypeConversion.SingleConverter.ConvertFromString(String text, IReaderRow row, MemberMapData memberMapData)
+   at CsvHelper.CsvReader.GetField(Type type, Int32 index, ITypeConverter converter)
+   at CsvHelper.CsvReader.GetField[T](Int32 index, ITypeConverter converter)
+   at CsvHelper.CsvReader.GetField[T](String name, ITypeConverter converter)
+   at CsvHelper.CsvReader.GetField[T](String name)
+   at GroceryCo.Services.CheckoutService.loadCheckoutFile() in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 315
+   at GroceryCo.Services.CheckoutService.processCheckout() in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 71
+   at GroceryCo.Services.CheckoutService.checkout(String fileName, DateTime checkoutDate) in C:\Braulio\Absorb\GroceryCo\GroceryCo\GroceryCo\GroceryCo\Services\CheckoutService.cs:line 59
+
+
+The conversion cannot be performed.
+    Text: ''
+    MemberType: 
+    TypeConverter: 'CsvHelper.TypeConversion.SingleConverter'

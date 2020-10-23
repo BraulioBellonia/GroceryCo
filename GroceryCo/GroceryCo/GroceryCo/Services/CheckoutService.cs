@@ -50,14 +50,20 @@ namespace GroceryCo.Services
         public IConfigurationRoot Configuration { get => _configuration; set => _configuration = value; }
         #endregion
 
-        public decimal checkout(string fileName, DateTime checkoutDate)
+        public void checkout(string fileName, DateTime checkoutDate)
         {
-            if (!loadConfigurations(fileName, checkoutDate)) return 0;
-
-            loadMarketingFiles();
-            processCheckout();
-
-            return Basket.GetTotal();
+            try
+            {
+                loadConfigurations(fileName, checkoutDate);
+                loadMarketingFiles();
+                processCheckout();
+            }
+            catch(Exception e)
+            {
+                LogFilePath = Path.Combine(Configuration["logfolder"], String.Format(Configuration["logfilename"], Path.GetFileNameWithoutExtension(CheckoutFilePath), DateTime.Now.ToString("yyyy-MM-dd_HHmmss")));
+                System.IO.File.WriteAllText(LogFilePath, e.Message + "\r\n\r\n\r\n" + e.ToString());
+            }
+            
         }
 
         public void processCheckout() 
@@ -188,7 +194,7 @@ namespace GroceryCo.Services
 
         #region LOAD FILES AND CONFIGURATIONS
 
-        private Boolean loadConfigurations(string fileName, DateTime checkoutDateTime)
+        private void loadConfigurations(string fileName, DateTime checkoutDateTime)
         {
             if (checkoutDateTime != DateTime.MinValue)
                 checkoutDate = checkoutDateTime;
@@ -198,8 +204,7 @@ namespace GroceryCo.Services
 
             if (string.IsNullOrEmpty(fileName) || string.IsNullOrEmpty(Configuration["checkoutfolder"]) || !File.Exists(Path.Combine(Configuration["checkoutfolder"], fileName)))
             {
-                Console.WriteLine("Invalid file name.");
-                return false;
+                throw new Exception("Invalid file name.");
             }
             else
                 CheckoutFilePath = Path.Combine(Configuration["checkoutfolder"], fileName);
@@ -207,8 +212,7 @@ namespace GroceryCo.Services
             if (string.IsNullOrEmpty(Configuration["productsfilename"]) || string.IsNullOrEmpty(Configuration["configurationfolder"])
                     || !File.Exists(Path.Combine(Configuration["configurationfolder"], Configuration["productsfilename"])))
             {
-                Console.WriteLine("Invalid Product file configuration.");
-                return false;
+                throw new Exception("Invalid Product file configuration.");
             }
             else
                 ProductsFilePath = Path.Combine(Configuration["configurationfolder"], Configuration["productsfilename"]);
@@ -216,8 +220,7 @@ namespace GroceryCo.Services
             if (string.IsNullOrEmpty(Configuration["pricelistfilename"]) || string.IsNullOrEmpty(Configuration["configurationfolder"])
                     || !File.Exists(Path.Combine(Configuration["configurationfolder"], String.Format(Configuration["pricelistfilename"], (checkoutDate.Year + "-" + checkoutDate.Month.ToString("00"))))))
             {
-                Console.WriteLine("Invalid Price List file configuration.");
-                return false;
+                throw new Exception("Invalid Price List file configuration.");
             }
             else
                 PriceListFilePath = Path.Combine(Configuration["configurationfolder"], String.Format(Configuration["pricelistfilename"], (checkoutDate.Year + "-" + checkoutDate.Month.ToString("00"))));
@@ -225,13 +228,10 @@ namespace GroceryCo.Services
             if (string.IsNullOrEmpty(Configuration["promotionfilename"]) || string.IsNullOrEmpty(Configuration["configurationfolder"])
                     || !File.Exists(Path.Combine(Configuration["configurationfolder"], String.Format(Configuration["promotionfilename"], (checkoutDate.Year + "-" + checkoutDate.Month.ToString("00"))))))
             {
-                Console.WriteLine("Invalid Promotion file configuration.");
-                return false;
+                throw new Exception("Invalid Promotion file configuration.");
             }
             else
                 PromotionsFilePath = Path.Combine(Configuration["configurationfolder"], String.Format(Configuration["promotionfilename"], (checkoutDate.Year + "-" + checkoutDate.Month.ToString("00"))));
-
-            return true;
         }
 
         public void loadMarketingFiles() 

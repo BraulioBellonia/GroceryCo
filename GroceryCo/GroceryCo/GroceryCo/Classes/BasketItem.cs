@@ -28,23 +28,23 @@ namespace GroceryCo.Classes
             {
                 if (this.Price.PriceType == PriceType.Each)
                 {
-                    return (decimal) this.Quantity * this.Price.ProductPrice;
+                    return Math.Round((decimal) this.Quantity * this.Price.ProductPrice,2);
                 }
                 else 
                 { 
-                    return (decimal) this.Weight * this.Price.ProductPrice;
+                    return Math.Round((decimal) this.Weight * this.Price.ProductPrice, 2);
                 }
             }
             else 
             {
                 if (Promotion.PromotionType == PromotionType.AdditionalProductDiscount)
                 {
-                    return (decimal) ((float) Price.ProductPrice * Promotion.DiscountNextItem) * -1;
+                    return Math.Round((decimal) ((float) Price.ProductPrice * Promotion.DiscountNextItem) * -1, 2);
                 }
                 else 
                 {
                     decimal originalTotalPrice = (decimal) Promotion.Quantity * Price.ProductPrice;
-                    return (decimal) (originalTotalPrice - Promotion.ProductPriceAfterDiscount) * -1;
+                    return Math.Round((decimal) (originalTotalPrice - Promotion.ProductPriceAfterDiscount) * -1, 2);
                 }
             }
         }
